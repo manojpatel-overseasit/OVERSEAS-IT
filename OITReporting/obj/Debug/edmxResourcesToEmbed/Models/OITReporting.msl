@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myOITReportingStoreContainer" CdmEntityContainer="dbOITReportingEntities">
+    <EntitySetMapping Name="clientMasters">
+      <EntityTypeMapping TypeName="myOITReporting.clientMaster">
+        <MappingFragment StoreEntitySet="clientMaster">
+          <ScalarProperty Name="clientId" ColumnName="clientId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="domainId" ColumnName="domainId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="emailId" ColumnName="emailId" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+          <ScalarProperty Name="ContactPersonDesignation" ColumnName="ContactPersonDesignation" />
+          <ScalarProperty Name="contactPersonContactNo1" ColumnName="contactPersonContactNo1" />
+          <ScalarProperty Name="contactPersonContactNo2" ColumnName="contactPersonContactNo2" />
+          <ScalarProperty Name="companyCellPhone" ColumnName="companyCellPhone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="counytryId" ColumnName="counytryId" />
+          <ScalarProperty Name="isResponded" ColumnName="isResponded" />
+          <ScalarProperty Name="isUnsubscribe" ColumnName="isUnsubscribe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="domainMasters">
+      <EntityTypeMapping TypeName="myOITReporting.domainMaster">
+        <MappingFragment StoreEntitySet="domainMaster">
+          <ScalarProperty Name="domainId" ColumnName="domainId" />
+          <ScalarProperty Name="domainName" ColumnName="domainName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emailSendingHistories">
+      <EntityTypeMapping TypeName="myOITReporting.emailSendingHistory">
+        <MappingFragment StoreEntitySet="emailSendingHistory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="clientId" ColumnName="clientId" />
+          <ScalarProperty Name="emailDate" ColumnName="emailDate" />
+          <ScalarProperty Name="emailType" ColumnName="emailType" />
+          <ScalarProperty Name="isResponded" ColumnName="isResponded" />
+          <ScalarProperty Name="isUnsubscribe" ColumnName="isUnsubscribe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCountries">
+      <EntityTypeMapping TypeName="myOITReporting.tblCountry">
+        <MappingFragment StoreEntitySet="tblCountry">
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStates">
+      <EntityTypeMapping TypeName="myOITReporting.tblState">
+        <MappingFragment StoreEntitySet="tblStates">
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userMasters">
+      <EntityTypeMapping TypeName="myOITReporting.userMaster">
+        <MappingFragment StoreEntitySet="userMaster">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="contactNo" ColumnName="contactNo" />
+          <ScalarProperty Name="emailID" ColumnName="emailID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="rememberMe" ColumnName="rememberMe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

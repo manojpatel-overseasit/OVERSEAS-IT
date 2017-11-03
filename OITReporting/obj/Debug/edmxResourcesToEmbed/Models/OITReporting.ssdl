@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myOITReporting.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="clientMaster">
+    <Key>
+      <PropertyRef Name="clientId" />
+    </Key>
+    <Property Name="clientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="domainId" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="emailId" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactPersonName" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="ContactPersonDesignation" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="contactPersonContactNo1" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="contactPersonContactNo2" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="companyCellPhone" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="counytryId" Type="int" Nullable="false" />
+    <Property Name="isResponded" Type="bit" />
+    <Property Name="isUnsubscribe" Type="bit" />
+  </EntityType>
+  <EntityType Name="domainMaster">
+    <Key>
+      <PropertyRef Name="domainId" />
+    </Key>
+    <Property Name="domainId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="domainName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emailSendingHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientId" Type="int" Nullable="false" />
+    <Property Name="emailDate" Type="datetime" Nullable="false" />
+    <Property Name="emailType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isResponded" Type="bit" />
+    <Property Name="isUnsubscribe" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblCountry">
+    <Key>
+      <PropertyRef Name="countryId" />
+    </Key>
+    <Property Name="countryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblStates">
+    <Key>
+      <PropertyRef Name="stateId" />
+    </Key>
+    <Property Name="stateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="countryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userMaster">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dob" Type="date" Nullable="false" />
+    <Property Name="gender" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="countryId" Type="int" Nullable="false" />
+    <Property Name="contactNo" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="emailID" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="rememberMe" Type="bit" />
+  </EntityType>
+  <Association Name="FK_clientMaster_domainMaster">
+    <End Role="domainMaster" Type="Self.domainMaster" Multiplicity="1" />
+    <End Role="clientMaster" Type="Self.clientMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="domainMaster">
+        <PropertyRef Name="domainId" />
+      </Principal>
+      <Dependent Role="clientMaster">
+        <PropertyRef Name="domainId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_clientMaster_userMaster">
+    <End Role="userMaster" Type="Self.userMaster" Multiplicity="1" />
+    <End Role="clientMaster" Type="Self.clientMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userMaster">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="clientMaster">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emailSendingHistory_clientMaster">
+    <End Role="clientMaster" Type="Self.clientMaster" Multiplicity="1" />
+    <End Role="emailSendingHistory" Type="Self.emailSendingHistory" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="clientMaster">
+        <PropertyRef Name="clientId" />
+      </Principal>
+      <Dependent Role="emailSendingHistory">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStates_tblCountry">
+    <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="1" />
+    <End Role="tblStates" Type="Self.tblStates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCountry">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="tblStates">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="myOITReportingStoreContainer">
+    <EntitySet Name="clientMaster" EntityType="Self.clientMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="domainMaster" EntityType="Self.domainMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emailSendingHistory" EntityType="Self.emailSendingHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCountry" EntityType="Self.tblCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStates" EntityType="Self.tblStates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userMaster" EntityType="Self.userMaster" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_clientMaster_domainMaster" Association="Self.FK_clientMaster_domainMaster">
+      <End Role="domainMaster" EntitySet="domainMaster" />
+      <End Role="clientMaster" EntitySet="clientMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_clientMaster_userMaster" Association="Self.FK_clientMaster_userMaster">
+      <End Role="userMaster" EntitySet="userMaster" />
+      <End Role="clientMaster" EntitySet="clientMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emailSendingHistory_clientMaster" Association="Self.FK_emailSendingHistory_clientMaster">
+      <End Role="clientMaster" EntitySet="clientMaster" />
+      <End Role="emailSendingHistory" EntitySet="emailSendingHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStates_tblCountry" Association="Self.FK_tblStates_tblCountry">
+      <End Role="tblCountry" EntitySet="tblCountry" />
+      <End Role="tblStates" EntitySet="tblStates" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

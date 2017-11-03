@@ -1,0 +1,96 @@
+﻿@model IEnumerable<OITReporting.Models.userMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="inner_content">
+    <!-- /inner_content_w3_agile_info-->
+    <!-- breadcrumbs -->
+    <div class="w3l_agileits_breadcrumbs">
+        <div class="w3l_agileits_breadcrumbs_inner">
+            <ul>
+                <li><a href="~/Home/Dashboard">Home</a><span>«</span></li>
+                <li><a href="~/ManageUser/Index">Manage User</a></li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div>
+        <h2 class="text-info text-center text-uppercase">List of Users</h2>
+    </div>
+    @*<div>
+        @Html.ActionLink("New User","addUser", "UserManager")
+    </div>*@
+    <div>
+        <a href="~/UserManager/addUser" class="btn btn-primary">Add User</a>
+    </div>
+    <table class="table">
+        <tr class="text-center text-uppercase">
+            <th>
+                @Html.DisplayNameFor(model => model.firstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.countryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.state)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailID)
+            </th>
+            <th>
+                <strong>Action</strong>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.userId }, htmlAttributes: new { @class = "" } ) |
+                    @Html.ActionLink("Details", "Details", new { id = item.userId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.userId })
+                </td>
+            </tr>
+        }
+        
+    </table>
+   
+</div>

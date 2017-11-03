@@ -1,0 +1,89 @@
+﻿<!--
+Author: Rathod Virpal
+-->
+@model OITReporting.Models.dbClasses.userLogin
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Overseas IT Solution</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Glassy Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/Content/css/font-awesome1.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="~/Content/css/style1.css" type="text/css" media="all" />
+    <!-- //css files -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700" rel="stylesheet">
+    <!-- //web-fonts -->
+
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+</head>
+<body>
+    <!--header-->
+    <div class="header-w3l">
+        <h1>
+            Welcome<br />
+            Overseas IT Solution
+        </h1>
+    </div>
+    <!--//header-->
+    <!--main-->
+    <div class="main-w3layouts-agileinfo">
+        <!--form-stars-here-->
+        <div class="wthree-form">
+            <h2>Fill out the form below to login</h2>
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                <div class="form-sub-w3">
+                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new { name = "txtEmail", placeholder = "Enter email", required = "", autocomplete = "off" })
+                    <div class="icon-w3">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="form-sub-w3">
+                    @Html.PasswordFor(model => model.Password, htmlAttributes: new { name = "txtPassword", placeholder = "Enter password", required = "", autocomplete = "off" })
+                    <div class="icon-w3">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <label class="anim">
+                    @Html.CheckBoxFor(model => model.RememberMe,htmlAttributes: new { @class= "checkbox" })
+                    <span>@Html.DisplayNameFor(model => model.RememberMe)</span>
+                    <a href="#">Forgot Password</a>
+                </label>
+                <div class="clear"></div>
+                <div class="submit-agileits">
+                    <input type="submit" name="btnSubmit" value="Login">
+                </div>
+            }
+        </div>
+        <!--//form-ends-here-->
+    </div>
+    @*<div class="main-w3layouts-agileinfo" align="center" height="30px" >*@
+        <div class="alert alert-dismissable main-w3layouts-agileinfo">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+            @Html.ValidationMessage("passError", new { @class = "text-danger" })
+            @Html.ValidationMessage("usernameError", new { @class = "text-danger" })
+        </div>
+    @*</div>*@
+    <!--//main-->
+    <!--footer-->
+    <div class="footer">
+        <p>&copy; 2017 Overseas IT Solutions. All rights reserved | Design by <a href="">Overseas Developer</a></p>
+    </div>
+    <!--//footer-->
+</body>
+</html>
+
+<script src="~/Scripts/jquery-3.1.1.js"></script>
