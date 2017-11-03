@@ -18,22 +18,28 @@ namespace OITReporting.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         
-        public ActionResult Manoj()
+        public ActionResult events()
+        {
+            return View();
+        }
+
+        public ActionResult photoGalary()
+        {
+            return View();
+        }
+
+        public ActionResult about()
+        {
+            return View();
+        }
+
+        public ActionResult contact()
+        {
+            return View();
+        }
+
+        public ActionResult faq()
         {
             return View();
         }

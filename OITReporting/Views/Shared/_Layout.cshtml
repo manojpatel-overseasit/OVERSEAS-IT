@@ -89,23 +89,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </ul>
                                 </li>
 
-                                <li><a href="charts.html"> <i class="fa fa-line-chart" aria-hidden="true"></i> Charts</a></li>
-                                <li><a href="maps.html"><i class="fa fa-map-o" aria-hidden="true"></i> Maps</a></li>
+                                <li><a href="charts.html"> <i class="fa fa-database" aria-hidden="true"></i> Employee Attendance</a></li>
+                                <li><a href="maps.html"><i class="fa fa-money" aria-hidden="true"></i> Add Salary</a></li>
                                 <li class="page">
-                                    <a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-suitcase" aria-hidden="true"></i> More <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="gn-submenu">
-
-                                        <li class="mini_list_agile"> <a href="signin.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Sign In</a></li>
-                                        <li class="mini_list_w3"><a href="signup.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Sign Up</a></li>
-                                        <li class="mini_list_agile error"><a href="404.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Error 404 </a></li>
-                                        <li class="mini_list_w3_line"><a href="calendar.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Calendar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"> <i class="fa fa-suitcase" aria-hidden="true"></i>More <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <ul class="gn-submenu">
-                                        <li class="mini_list_agile"><a href="faq.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Faq</a></li>
-                                        <li class="mini_list_w3"><a href="blank.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Blank Page</a></li>
+                                        <li class="mini_list_agile"> <a href="calendar.html"> <i class="fa fa-mortar-board" aria-hidden="true"></i> Events</a></li>
+                                        <li class="mini_list_w3"><a href="signup.html"> <i class="fa fa-photo" aria-hidden="true"></i> Photo Galary</a></li>
+                                        <li class="mini_list_agile error"><a href="404.html"> <i class="fa fa-info-circle" aria-hidden="true"></i> About us </a></li>
+                                        <li class="mini_list_w3_line"><a href="calendar.html"> <i class="fa fa-map-signs" aria-hidden="true"></i> Contact</a></li>
+                                        <li class="mini_list_w3_line"><a href="calendar.html"> <i class="fa fa-question-circle-o" aria-hidden="true"></i> FAQ</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -125,12 +118,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         @HttpContext.Current.User.Identity.Name
                                     </text>
                                     <br />
-                                    <div class="btn-group">
+                                    <div class="">
                                         @if (Request.IsAuthenticated)
                                         {
                                             using (Html.BeginForm("Logout", "Account", FormMethod.Post))
                                             {
-                                                <input type="submit" class="btn btn-danger" value="Logout" width="1" height="1" />
+                                                <input type="submit" class="btn btn-danger text-uppercase" value="Logout" width="1" height="1" />
                                             }
                                         }
                                     </div>
@@ -660,7 +653,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     @*<script src="js/flipclock.js"></script>*@
-    <script src="js/flipclock.js"></script>
+    <script src="~/Scripts/flipclock.js"></script>
     <script src="~/Scripts/flipclock.js"></script>
     <script type="text/javascript">
         var clock;
