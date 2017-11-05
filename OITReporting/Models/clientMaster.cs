@@ -11,25 +11,42 @@ namespace OITReporting.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class clientMaster
     {
         public int clientId { get; set; }
+        [Display(Name ="User ID")]
         public int userId { get; set; }
+        [Display(Name = "Domain ID")]
         public int domainId { get; set; }
+        [Display(Name = "Status")]
         public string status { get; set; }
+        [Display(Name = "Email ID")]
         public string emailId { get; set; }
+        [Display(Name = "Company Name")]
         public string companyName { get; set; }
+        [Display(Name = "Contact Person Name")]
         public string ContactPersonName { get; set; }
+        [Display(Name = "Desgination")]
         public string ContactPersonDesignation { get; set; }
+        [Display(Name = "Mobile No.")]
         public decimal contactPersonContactNo1 { get; set; }
+        [Display(Name = "Alternate No.")]
         public Nullable<decimal> contactPersonContactNo2 { get; set; }
+        [Display(Name = "Telephone No.")]
         public Nullable<decimal> companyCellPhone { get; set; }
+        [Display(Name = "Address")]
         public string address { get; set; }
+        [Display(Name = "City")]
         public string city { get; set; }
+        [Display(Name = "State")]
         public string state { get; set; }
+        [Display(Name = "Country")]
         public int counytryId { get; set; }
+        [Display(Name = "Is Responded")]
         public Nullable<bool> isResponded { get; set; }
+        [Display(Name = "IS Unsubscribed")]
         public Nullable<bool> isUnsubscribe { get; set; }
     
         public virtual domainMaster domainMaster { get; set; }

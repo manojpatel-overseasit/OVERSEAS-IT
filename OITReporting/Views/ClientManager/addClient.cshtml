@@ -1,0 +1,280 @@
+﻿@model OITReporting.Models.clientMaster
+
+@{
+    ViewBag.Title = "addClient";
+}
+
+<div class="inner_content">
+    <!-- /inner_content_w3_agile_info-->
+    <!-- breadcrumbs -->
+    <div class="w3l_agileits_breadcrumbs">
+        <div class="w3l_agileits_breadcrumbs_inner">
+            <ul>
+                <li><a href="~/Home/Dashboard">Home</a><span>«</span></li>
+                <li><a href="~/ClientManager/Index">Manage Client</a><span>«</span></li>
+                <li>Add New Client</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+    <div style="padding-top:35px">
+        @if (ViewBag.status != null)
+        {
+            <div class="alert alert-link alert-dismissable alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>@ViewBag.status</strong>
+            </div>
+        }
+    </div>
+
+    <div class="inner_content_w3_agile_info two_in">
+        <h2 class="w3_inner_tittle text-capitalize text-center">Add New Client</h2>
+
+        <!--/forms-->
+        <div class="forms-main_agileits">
+
+            <div class="forms-inner text-center">
+
+                <div class="wthree_general graph-form agile_info_shadow ">
+                    <h3 class="w3_inner_tittle two">Fill the below from to add new Client</h3>
+
+                    <div class="grid-1 ">
+                        <div class="form-body">
+                            @using (Html.BeginForm("addClient","ClientManager",FormMethod.Post,htmlAttributes: new { @class = "form-horizontal" }))
+                            {
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">
+                                        @Html.LabelFor(model => model.userId)
+                                    </label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.userId, string.Empty, htmlAttributes: new { @class = "form-control1", id = "focusedinput", placeholder = "Enter USER ID" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <p class="help-block">
+                                            @Html.ValidationMessageFor(model => model.userId, string.Empty, htmlAttributes: new { @class = "alert-danger" })
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="col-sm-2 control-label">
+                                        @Html.LabelFor(model => model.domainId)
+                                    </label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.domainId, string.Empty, htmlAttributes: new { @class = "form-control1", id = "focusedinput", placeholder = "Enter Domain ID" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <p class="help-block">
+                                            @Html.ValidationMessageFor(model => model.domainId, "", htmlAttributes: new { @class = "alert-danger" })
+                                        </p>
+                                    </div>
+                                </div>
+
+                                    <div class="form-group">
+                                        <label for="lastName" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.status)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.status, string.Empty, htmlAttributes: new { @class = "form-control1", placeholder="Status"})
+                                            @*<div class='input-group date' id='datetimepicker1'>
+                                                </div>*@
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.status, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.emailId)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.emailId, string.Empty, htmlAttributes: new { @class = "form-control1", placeholder="Enter Email"})
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.emailId, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.companyName)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.companyName, string.Empty, htmlAttributes: new { @class = "form-control1", placeholder = "Enter Company Name" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.companyName, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.ContactPersonName)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.ContactPersonName, string.Empty, htmlAttributes: new { @class = "form-control1", placeholder = "Contact Person Name" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.ContactPersonName, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.ContactPersonDesignation)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.ContactPersonDesignation, string.Empty, htmlAttributes: new { @class = "form-control1", placeholder = "Enter Person Desgination" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.ContactPersonDesignation, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.contactPersonContactNo1)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.contactPersonContactNo1, string.Empty, htmlAttributes: new { @class = "form-control1", type = "phone", placeholder = "Enter Mobile No." })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.contactPersonContactNo1, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.contactPersonContactNo2)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.contactPersonContactNo2, string.Empty, htmlAttributes: new { @class = "form-control1", type = "phone", placeholder = "Enter Alternate mobile no" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.contactPersonContactNo2, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtarea1" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.address)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextAreaFor(model => model.address, 5, 5, htmlAttributes: new { @class = "form-control1", placeholder = "Enter company address" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.address, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.city)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @{
+                                                var citylist = new List<SelectListItem> { new SelectListItem { Text = "Ahmedabad", Value = "Ahmedabad" },
+                                                new SelectListItem { Text = "Gandhinagar", Value = "Gandhinagar" },
+                                                new SelectListItem { Text = "Kalol", Value = "Kalol" } };
+                                            }
+                                            @Html.DropDownListFor(model => model.city, citylist, "Select City", htmlAttributes: new { @class = "form-control1" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.city, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.state)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @{
+                                                var statelist = new List<SelectListItem> {
+                                                new SelectListItem { Text = "Gujarat", Value = "Gujarat" },
+                                                new SelectListItem { Text = "Maharastra", Value = "Maharastra" },
+                                                new SelectListItem { Text = "Panjab", Value = "Panjab" } };
+                                            }
+                                            @Html.DropDownListFor(model => model.state, statelist, "Select State", htmlAttributes: new { @class = "form-control1" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.state, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.counytryId)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @{
+                                                var countrylist = new List<SelectListItem> {
+                                                new SelectListItem { Text = "India", Value = "1" },
+                                                new SelectListItem { Text = "United State of America", Value = "2" },
+                                                new SelectListItem { Text = "Canada", Value = "3" } };
+                                            }
+                                            @Html.DropDownListFor(model => model.counytryId, countrylist, "Select Country", htmlAttributes: new { @class = "form-control1" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.counytryId, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastName" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.isResponded)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.isResponded, string.Empty, htmlAttributes: new { @class = "form-control1", id = "lastnameinput", placeholder = "You are responded" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.isResponded, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName" class="col-sm-2 control-label">
+                                            @Html.LabelFor(model => model.isUnsubscribe)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.isUnsubscribe, string.Empty, htmlAttributes: new { @class = "form-control1", id = "lastnameinput", placeholder = "You unsibscribed" })
+                                            @*<input type="email" class="form-control1" id="lastnameinput" placeholder="Enter Emaild Address">*@
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="help-block">
+                                                @Html.ValidationMessageFor(model => model.isUnsubscribe, "", htmlAttributes: new { @class = "alert-danger" })
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-default">ADD</button>
+                                        <a href="~/Home/Dashboard" class="btn btn-danger" role="button">Cancel</a>
+                                    </div>
+                                                }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//forms-inner-->
+        </div>
+        <!--//forms-->
+    </div>
+    <!-- //inner_content_w3_agile_info-->
+</div>
+          

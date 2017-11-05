@@ -1,0 +1,95 @@
+﻿@model IEnumerable<OITReporting.Models.clientMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="inner_content">
+    <!-- /inner_content_w3_agile_info-->
+    <!-- breadcrumbs -->
+    <div class="w3l_agileits_breadcrumbs">
+        <div class="w3l_agileits_breadcrumbs_inner">
+            <ul>
+                <li><a href="~/Home/Dashboard">Home</a><span>«</span></li>
+                <li><a href="~/ClientManager/Index">Manage Client</a></li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div>
+        <h2 class="text-info text-center text-uppercase">List of Cleints</h2>
+    </div>
+    @*<div>
+            @Html.ActionLink("New User","addUser", "UserManager")
+        </div>*@
+    <div>
+        <a href="~/ClientManager/addClient" class="btn btn-primary">Add Client</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.companyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contactPersonContactNo1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isResponded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isUnsubscribe)
+            </th>
+            <th>
+                <strong>Action</strong>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.companyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactPersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contactPersonContactNo1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isResponded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isUnsubscribe)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.clientId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.clientId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.clientId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
